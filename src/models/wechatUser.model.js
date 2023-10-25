@@ -9,13 +9,18 @@ const wechatUserSchema = mongoose.Schema(
       enum: roles,
       default: 'user',
     },
-    openid: String,
-    unionid: {
+    openid: {
       type: String,
       unique: true,
     },
+    unionid: {
+      type: String,
+    },
     nickName: String,
     avatarUrl: String,
+    gradeId: {
+      type: Array,
+    }, // 班级id
   },
   {
     timestamps: true,
@@ -27,7 +32,7 @@ wechatUserSchema.plugin(toJSON);
 wechatUserSchema.plugin(paginate);
 
 /**
- * @typedef User
+ * @typedef WechatUser
  */
 const WechatUser = mongoose.model('WechatUser', wechatUserSchema);
 
