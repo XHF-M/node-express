@@ -16,6 +16,12 @@ const login = {
   }),
 };
 
+const loginWechat = {
+  body: Joi.object().keys({
+    code: Joi.string().required(),
+  }),
+};
+
 const logout = {
   body: Joi.object().keys({
     refreshToken: Joi.string().required(),
@@ -52,6 +58,7 @@ const verifyEmail = {
 module.exports = {
   register,
   login,
+  loginWechat,
   logout,
   refreshTokens,
   forgotPassword,
